@@ -1,1 +1,8 @@
 image: registry.gitlab.com/mtdelotavo/apigee_automation:latest
+
+build-master:
+  stage: build
+  script:
+    - apigeetool -h
+  only:
+    - master
