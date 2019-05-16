@@ -1,0 +1,9 @@
+   =========================================================================
+   ==  NOTICE file corresponding to the section 4 d of                    ==
+   ==  the Apache License, Version 2.0,                                   ==
+   ==  in this case for the Apigee default API proxies code.              ==
+   =========================================================================
+
+Apigee helloworld and oauth default API proxies
+https://github.com/apigee/api-platform-samples/tree/master/default-proxies
+These files are Copyright 2017 Google Inc., released under the Apache2 License.
