@@ -1,8 +1,7 @@
 image: registry.gitlab.com/mtdelotavo/apigee_automation:latest
 
-build-master:
+build:
   stage: build
+  when: manual
   script:
-    - apigeetool addEntryToKVM -h
-  only:
-    - master
+    - apigeetool deployproxy --verbose --organization $APIGEE_ORG --username $APIGEE_USER --password $APIGEE_PASSWORD --environments test --api helloworld --directory api-proxies/helloworld/
