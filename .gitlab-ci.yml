@@ -1,7 +1,26 @@
 image: registry.gitlab.com/mtdelotavo/apigee_automation:latest
 
-build:
-  stage: build
+stages:
+  - lint
+  - deploy
+  - test
+
+static code analysis:
+  stage: lint
+  when: manual
+  script:
+    - for file in api-proxies/*; do echo $file; apigeelint -s $file/apiproxy/ -f table.js; done
+  allow_failure: true
+
+deploy to apigee:
+  stage: deploy
   when: manual
   script:
     - apigeetool deployproxy --verbose --organization $APIGEE_ORG --username $APIGEE_USER --password $APIGEE_PASSWORD --environments test --api helloworld --directory api-proxies/helloworld/
+
+run postman collections:
+  stage: test
+  when: manual
+  script:
+    - for file in postman/*; do echo $file; newman run $file; done
+  allow_failure: true
