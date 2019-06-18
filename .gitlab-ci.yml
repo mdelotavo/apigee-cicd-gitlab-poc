@@ -9,6 +9,7 @@ static code analysis:
   stage: lint
   when: manual
   script:
+    - rm api-proxies/README.md
     - for file in api-proxies/*; do echo $file; apigeelint -s $file/apiproxy/ -f table.js; done
   allow_failure: true
 
