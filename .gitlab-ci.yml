@@ -5,7 +5,7 @@ stages:
   - deploy
   - test
 
-static code analysis:
+lint:
   stage: lint
   when: manual
   script:
@@ -13,13 +13,13 @@ static code analysis:
     - for file in api-proxies/*; do echo $file; apigeelint -s $file/apiproxy/ -f table.js; done
   allow_failure: true
 
-deploy to apigee:
+deploy:
   stage: deploy
   when: manual
   script:
     - apigeetool deployproxy --verbose --organization $APIGEE_ORG --username $APIGEE_USER --password $APIGEE_PASSWORD --environments test --api helloworld --directory api-proxies/helloworld/
 
-run postman collections:
+test:
   stage: test
   when: manual
   script:
