@@ -5,7 +5,7 @@ stages:
   - deploy
   - test
 
-lint:
+lint-job:
   stage: lint
   when: manual
   script:
@@ -13,13 +13,13 @@ lint:
     - for file in api-proxies/*; do echo $file; apigeelint -s $file/apiproxy/ -f table.js; done
   allow_failure: true
 
-deploy:
+deploy-job:
   stage: deploy
   when: manual
   script:
     - apigeetool deployproxy --verbose --organization $APIGEE_ORG --username $APIGEE_USER --password $APIGEE_PASSWORD --environments test --api helloworld --directory api-proxies/helloworld/
 
-test:
+test-job:
   stage: test
   when: manual
   script:
