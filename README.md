@@ -1,27 +1,17 @@
-# apigee_apis
-Apigee Edge CI/CD consumer proof of concept
+# Apigee CI/CD GitLab Proof of Concept
 
-## deployproxy
-This is set in `.gitlab-ci.yml` as a manual job and will run like so:
-```console
-$ apigeetool deployproxy --verbose --organization $APIGEE_ORG --username $APIGEE_USER --password $APIGEE_PASSWORD --environments test --api helloworld --directory api-proxies/helloworld/
-Going to create revision 7 of API helloworld
-Using api-proxies/helloworld/apiproxy/helloworld.xml as the root file
-Creating revision 7 of API helloworld
-No resources found
-Uploading policy add-cors.xml
-Uploading policy check-quota.xml
-Uploading target default
-Uploading proxy default
-Deploying revision 7 of helloworld to test
-Delaying deployment for 0 seconds
-Deployment on test successful
-"helloworld" Revision 7
-  deployed
-  environment = test
-  base path = /
-  URI = http://matthew-eval-test.apigee.net/v0/hello
-  URI = https://matthew-eval-test.apigee.net/v0/hello
+**Please note that this project was created as a temporary experiment and is no longer actively maintained.**
 
-Job succeeded
-```
+This repository contains a proof of concept for deploying an API proxy to Apigee Edge using GitLab CI/CD and the "apigeetool" command-line tool. The pipeline is configured to deploy the proxy to the "test" environment in Apigee Edge and is triggered manually.
+
+While this project was useful as a proof of concept, it should not be used as a starting point for new projects or as an example of best practices. It is being archived for reference purposes only.
+
+If you're interested in learning more about deploying API proxies to Apigee Edge using GitLab CI/CD, we recommend checking out the official documentation and resources provided by Apigee.
+
+## Getting Started
+
+As this project is no longer actively maintained, we do not recommend attempting to use it to deploy API proxies to Apigee Edge. If you're looking for guidance on how to do this, please refer to the official Apigee documentation and resources.
+
+## Contributing
+
+As this project is being archived, we are not accepting contributions or pull requests at this time.
